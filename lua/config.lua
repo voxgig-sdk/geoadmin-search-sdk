@@ -1,0 +1,212 @@
+-- GeoadminSearch SDK configuration
+
+local function make_config()
+  return {
+    main = {
+      name = "GeoadminSearch",
+    },
+    feature = {
+      ["test"] = {
+        ["options"] = {
+          ["active"] = false,
+        },
+      },
+    },
+    options = {
+      base = "https://api3.geo.admin.ch",
+      headers = {
+        ["content-type"] = "application/json",
+      },
+      entity = {
+        ["search"] = {},
+      },
+    },
+    entity = {
+      ["search"] = {
+        ["fields"] = {
+          {
+            ["active"] = true,
+            ["name"] = "result",
+            ["req"] = false,
+            ["type"] = "`$ARRAY`",
+            ["index$"] = 0,
+          },
+        },
+        ["name"] = "search",
+        ["op"] = {
+          ["load"] = {
+            ["input"] = "data",
+            ["name"] = "load",
+            ["points"] = {
+              {
+                ["active"] = true,
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["active"] = true,
+                      ["example"] = "551306.5625,167918.328125,551754.125,168514.625",
+                      ["kind"] = "query",
+                      ["name"] = "bbox",
+                      ["orig"] = "bbox",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "callback",
+                      ["orig"] = "callback",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
+                      ["kind"] = "query",
+                      ["name"] = "feature",
+                      ["orig"] = "feature",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "geometry_format",
+                      ["orig"] = "geometry_format",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "de",
+                      ["kind"] = "query",
+                      ["name"] = "lang",
+                      ["orig"] = "lang",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = 50,
+                      ["kind"] = "query",
+                      ["name"] = "limit",
+                      ["orig"] = "limit",
+                      ["reqd"] = false,
+                      ["type"] = "`$INTEGER`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "address,gazetteer",
+                      ["kind"] = "query",
+                      ["name"] = "origin",
+                      ["orig"] = "origin",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "return_geometry",
+                      ["orig"] = "return_geometry",
+                      ["reqd"] = false,
+                      ["type"] = "`$BOOLEAN`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "wabern",
+                      ["kind"] = "query",
+                      ["name"] = "search_text",
+                      ["orig"] = "search_text",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "sortbbox",
+                      ["orig"] = "sortbbox",
+                      ["reqd"] = false,
+                      ["type"] = "`$BOOLEAN`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "21781",
+                      ["kind"] = "query",
+                      ["name"] = "sr",
+                      ["orig"] = "sr",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["example"] = "locations",
+                      ["kind"] = "query",
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                    },
+                  },
+                },
+                ["method"] = "GET",
+                ["orig"] = "/rest/services/ech/SearchServer",
+                ["parts"] = {
+                  "rest",
+                  "services",
+                  "ech",
+                  "SearchServer",
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "bbox",
+                    "callback",
+                    "feature",
+                    "geometry_format",
+                    "lang",
+                    "limit",
+                    "origin",
+                    "return_geometry",
+                    "search_text",
+                    "sortbbox",
+                    "sr",
+                    "type",
+                  },
+                },
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["index$"] = 0,
+              },
+            },
+            ["key$"] = "load",
+          },
+        },
+        ["relations"] = {
+          ["ancestors"] = {},
+        },
+      },
+    },
+  }
+end
+
+
+local function make_feature(name)
+  local features = require("features")
+  local factory = features[name]
+  if factory ~= nil then
+    return factory()
+  end
+  return features.base()
+end
+
+
+-- Attach make_feature to the SDK class
+local function setup_sdk(SDK)
+  SDK._make_feature = make_feature
+end
+
+
+return make_config

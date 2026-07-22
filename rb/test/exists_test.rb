@@ -1,0 +1,11 @@
+# GeoadminSearch SDK exists test
+
+require "minitest/autorun"
+require_relative "../GeoadminSearch_sdk"
+
+class ExistsTest < Minitest::Test
+  def test_create_test_sdk
+    testsdk = GeoadminSearchSDK.test(nil, nil)
+    assert !testsdk.nil?
+  end
+end

@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "result": [],
+        "id": "SEARCH00"
+      },
+      "SEARCH01": {
+        "result": [],
+        "id": "SEARCH01"
+      },
+      "SEARCH02": {
+        "result": [],
+        "id": "SEARCH02"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "result": []
+      }
+    }
+  }
+}

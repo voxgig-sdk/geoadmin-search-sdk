@@ -1,0 +1,30 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        name: "GeoAdmin API Documentation"
+        url: "https://docs.geo.admin.ch/access-data/search.html"
+      }
+      description: "This API allows users to search for locations, layers, or features using either text search or bounding box parameters. It supports three types of searches: location search, layer search, and feature search, enabling comprehensive data retrieval from the Swiss national geographic database."
+      license: {
+        name: "Terms of Use"
+        url: "https://www.geo.admin.ch/en/terms-of-use"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api3.geo.admin.ch"
+        }
+      ]
+      summary: "This API allows users to search for locations, layers, or features using either text search or bounding box parameters."
+      title: "GeoAdmin Search API"
+      version: "1.0.0"
+      website: "https://docs.geo.admin.ch/access-data/search.html"
+    }
+  }
+}
+
