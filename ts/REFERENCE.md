@@ -116,7 +116,7 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `any[]` | No |  |
+| `results` | `any[]` | No |  |
 
 ### Operations
 

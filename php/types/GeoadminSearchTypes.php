@@ -15,12 +15,12 @@ declare(strict_types=1);
 /** Search entity data model. */
 class Search
 {
-    public ?array $result = null;
+    public ?array $results = null;
 }
 
 /** Request payload for Search#load. */
 class SearchLoadMatch
 {
-    public ?array $result = null;
+    public ?array $results = null;
 }
 

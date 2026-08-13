@@ -6,7 +6,7 @@ main: kit: entity: search: {
 
   fields: [
     {
-      name: "result"
+      name: "results"
       req: false
       type: "`$ARRAY`"
     }

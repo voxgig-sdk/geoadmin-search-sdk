@@ -43,8 +43,8 @@ class GeoadminSearchTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('GEOADMINSEARCH_TEST_LIVE');
-        $override = self::getenv('GEOADMINSEARCH_TEST_OVERRIDE');
+        $live = self::getenv('GEOADMIN_SEARCH_TEST_LIVE');
+        $override = self::getenv('GEOADMIN_SEARCH_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class GeoadminSearchTestRunner
             }
         }
 
-        $explain = self::getenv('GEOADMINSEARCH_TEST_EXPLAIN');
+        $explain = self::getenv('GEOADMIN_SEARCH_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['GEOADMINSEARCH_TEST_EXPLAIN'] = $explain;
+            $m['GEOADMIN_SEARCH_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import GeoadminSearchSDK
-from core.error import GeoadminSearchError
-from core.result import GeoadminSearchResult
-from core.response import GeoadminSearchResponse
-from core.spec import GeoadminSearchSpec
-from feature.base_feature import GeoadminSearchBaseFeature
+from projectname_sdk.core.error import GeoadminSearchError
+from projectname_sdk.core.result import GeoadminSearchResult
+from projectname_sdk.core.response import GeoadminSearchResponse
+from projectname_sdk.core.spec import GeoadminSearchSpec
+from projectname_sdk.feature.base_feature import GeoadminSearchBaseFeature
 
 
 def _client():

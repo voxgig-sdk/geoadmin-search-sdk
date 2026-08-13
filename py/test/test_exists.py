@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# GeoadminSearch SDK exists test
 
 import pytest
 from geoadminsearch_sdk import GeoadminSearchSDK

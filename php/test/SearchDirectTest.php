@@ -71,11 +71,11 @@ function search_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "GEOADMINSEARCH_TEST_SEARCH_ENTID" => [],
-        "GEOADMINSEARCH_TEST_LIVE" => "FALSE",
+        "GEOADMIN_SEARCH_TEST_SEARCH_ENTID" => [],
+        "GEOADMIN_SEARCH_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["GEOADMINSEARCH_TEST_LIVE"] === "TRUE";
+    $live = $env["GEOADMIN_SEARCH_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

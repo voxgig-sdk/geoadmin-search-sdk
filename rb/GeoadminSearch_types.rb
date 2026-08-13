@@ -10,19 +10,19 @@
 
 # Search entity data model.
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Array, nil]
 Search = Struct.new(
-  :result,
+  :results,
   keyword_init: true
 )
 
 # Request payload for Search#load.
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Array, nil]
 SearchLoadMatch = Struct.new(
-  :result,
+  :results,
   keyword_init: true
 )
 

@@ -27,7 +27,7 @@ module GeoadminSearchConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "result",
+              "name" => "results",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -151,6 +151,7 @@ module GeoadminSearchConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/rest/services/ech/SearchServer",
                   "parts" => [

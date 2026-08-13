@@ -90,7 +90,7 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `table` | No |  |
+| `results` | `table` | No |  |
 
 ### Operations
 

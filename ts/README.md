@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = GeoadminSearchSDK.test()
 
 const search = await client.Search().load()
-// search is a bare entity populated with mock response data
+// search is the entity, populated with mock response data
+// — call search.data() for the record itself
 console.log(search)
 ```
 
@@ -284,7 +285,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 
 Operations: load.
 
@@ -309,7 +310,7 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `any[]` |  |
+| `results` | `any[]` |  |
 
 #### Example: Load
 

@@ -93,7 +93,7 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `Array` | No |  |
+| `results` | `Array` | No |  |
 
 ### Operations
 

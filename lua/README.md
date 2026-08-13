@@ -225,7 +225,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 
 Operations: Load.
 
@@ -250,7 +250,7 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `table` |  |
+| `results` | `table` |  |
 
 #### Example: Load
 

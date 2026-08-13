@@ -23,8 +23,8 @@ module GeoadminSearchTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("GEOADMINSEARCH_TEST_LIVE")
-    override = getenv("GEOADMINSEARCH_TEST_OVERRIDE")
+    live = getenv("GEOADMIN_SEARCH_TEST_LIVE")
+    override = getenv("GEOADMIN_SEARCH_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module GeoadminSearchTestRunner
       end
     end
 
-    explain = getenv("GEOADMINSEARCH_TEST_EXPLAIN")
-    m["GEOADMINSEARCH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("GEOADMIN_SEARCH_TEST_EXPLAIN")
+    m["GEOADMIN_SEARCH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

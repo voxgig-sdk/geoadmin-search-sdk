@@ -92,7 +92,7 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `array` | No |  |
+| `results` | `array` | No |  |
 
 ### Operations
 

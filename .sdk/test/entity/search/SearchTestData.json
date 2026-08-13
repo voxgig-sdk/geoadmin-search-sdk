@@ -2,15 +2,15 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "result": [],
+        "results": [],
         "id": "SEARCH00"
       },
       "SEARCH01": {
-        "result": [],
+        "results": [],
         "id": "SEARCH01"
       },
       "SEARCH02": {
-        "result": [],
+        "results": [],
         "id": "SEARCH02"
       }
     }
@@ -18,7 +18,7 @@
   "new": {
     "search": {
       "search_ref01": {
-        "result": []
+        "results": []
       }
     }
   }

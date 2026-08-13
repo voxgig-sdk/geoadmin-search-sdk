@@ -26,7 +26,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "result",
+						"name": "results",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -150,6 +150,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/rest/services/ech/SearchServer",
 								"parts": []any{
@@ -181,7 +182,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

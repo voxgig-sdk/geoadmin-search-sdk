@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from geoadminsearch_sdk.utility.voxgig_struct import voxgig_struct as vs
 from geoadminsearch_sdk import GeoadminSearchSDK
-from core import helpers
+from geoadminsearch_sdk.core import helpers
 from test import runner
 
 
@@ -61,11 +61,11 @@ def _search_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "GEOADMINSEARCH_TEST_SEARCH_ENTID": {},
-        "GEOADMINSEARCH_TEST_LIVE": "FALSE",
+        "GEOADMIN_SEARCH_TEST_SEARCH_ENTID": {},
+        "GEOADMIN_SEARCH_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("GEOADMINSEARCH_TEST_LIVE") == "TRUE"
+    live = env.get("GEOADMIN_SEARCH_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -7,10 +7,10 @@
 -- edit by hand.
 
 ---@class Search
----@field result? table
+---@field results? table
 
 ---@class SearchLoadMatch
----@field result? table
+---@field results? table
 
 local M = {}
 

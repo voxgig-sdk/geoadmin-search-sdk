@@ -6,10 +6,10 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Search {
-  result?: any[]
+  results?: any[]
 }
 
 export interface SearchLoadMatch {
-  result?: any[]
+  results?: any[]
 }
 

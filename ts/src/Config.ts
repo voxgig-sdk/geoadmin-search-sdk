@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'GeoadminSearch',
   }
 
 
@@ -56,7 +56,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "result",
+          "name": "results",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -180,6 +180,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/rest/services/ech/SearchServer",
               "parts": [

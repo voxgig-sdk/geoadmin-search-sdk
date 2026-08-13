@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = GeoadminSearchSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = GeoadminSearchSDK.test({
+  entity: {
+    search: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const search = await client.Search().load()
-// search is a bare Search populated with mock data
+// search is the Search entity, populated with mock data
+// — call search.data() for the record itself
 console.log(search)
 ```
 
@@ -182,7 +191,7 @@ require_once 'geoadminsearch_sdk.php';
 $client = new GeoadminSearchSDK();
 
 
-// Load a specific search (returns the bare record; throws on error)
+// Load a specific search (returns the ENTITY; call data_get() for the record; throws on error)
 $search = $client->Search()->load();
 print_r($search);
 ```
@@ -210,7 +219,7 @@ require_relative "GeoadminSearch_sdk"
 client = GeoadminSearchSDK.new
 
 
-# Load a specific search (returns the bare record; raises on error)
+# Load a specific search (returns the ENTITY; call data_get for the record)
 search = client.Search.load()
 puts search
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://docs.geo.admin.ch/access-data/search.html](https://docs.geo.admin.ch/access-data/search.html)
 

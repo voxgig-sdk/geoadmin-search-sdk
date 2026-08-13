@@ -66,11 +66,11 @@ function search_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["GEOADMINSEARCH_TEST_SEARCH_ENTID"] = {},
-    ["GEOADMINSEARCH_TEST_LIVE"] = "FALSE",
+    ["GEOADMIN_SEARCH_TEST_SEARCH_ENTID"] = {},
+    ["GEOADMIN_SEARCH_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["GEOADMINSEARCH_TEST_LIVE"] == "TRUE"
+  local live = env["GEOADMIN_SEARCH_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
