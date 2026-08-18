@@ -28,7 +28,7 @@ class GeoadminSearchSDK
     utility = GeoadminSearchUtility.new
     @_utility = utility
 
-    config = GeoadminSearchConfig.make_config
+    config = GeoadminSearchConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

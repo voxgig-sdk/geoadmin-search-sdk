@@ -1,6 +1,20 @@
 # GeoadminSearch SDK configuration
 
 module GeoadminSearchConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,11 +40,8 @@ module GeoadminSearchConfig
         "search" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "results",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
           ],
           "name" => "search",
@@ -40,108 +51,84 @@ module GeoadminSearchConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "551306.5625,167918.328125,551754.125,168514.625",
                         "kind" => "query",
                         "name" => "bbox",
                         "orig" => "bbox",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "callback",
                         "orig" => "callback",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
                         "kind" => "query",
                         "name" => "feature",
                         "orig" => "feature",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "geometry_format",
                         "orig" => "geometry_format",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "de",
                         "kind" => "query",
                         "name" => "lang",
                         "orig" => "lang",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => 50,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => "address,gazetteer",
                         "kind" => "query",
                         "name" => "origin",
                         "orig" => "origin",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => true,
                         "kind" => "query",
                         "name" => "return_geometry",
                         "orig" => "return_geometry",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "example" => "wabern",
                         "kind" => "query",
                         "name" => "search_text",
                         "orig" => "search_text",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => true,
                         "kind" => "query",
                         "name" => "sortbbox",
                         "orig" => "sortbbox",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "example" => "21781",
                         "kind" => "query",
                         "name" => "sr",
                         "orig" => "sr",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "locations",
                         "kind" => "query",
                         "name" => "type",
@@ -180,10 +167,8 @@ module GeoadminSearchConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

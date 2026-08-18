@@ -40,7 +40,7 @@ class GeoadminSearchSDK
         $utility = new GeoadminSearchUtility();
         $this->_utility = $utility;
 
-        $config = GeoadminSearchConfig::make_config();
+        $config = GeoadminSearchConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

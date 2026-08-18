@@ -1,7 +1,30 @@
 # GeoadminSearch SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "GeoadminSearch",
@@ -26,11 +49,8 @@ def make_config():
       "search": {
         "fields": [
           {
-            "active": True,
             "name": "results",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 0,
           },
         ],
         "name": "search",
@@ -40,108 +60,84 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "example": "551306.5625,167918.328125,551754.125,168514.625",
                       "kind": "query",
                       "name": "bbox",
                       "orig": "bbox",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "callback",
                       "orig": "callback",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
                       "kind": "query",
                       "name": "feature",
                       "orig": "feature",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "geometry_format",
                       "orig": "geometry_format",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "de",
                       "kind": "query",
                       "name": "lang",
                       "orig": "lang",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": 50,
                       "kind": "query",
                       "name": "limit",
                       "orig": "limit",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": "address,gazetteer",
                       "kind": "query",
                       "name": "origin",
                       "orig": "origin",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": True,
                       "kind": "query",
                       "name": "return_geometry",
                       "orig": "return_geometry",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": "wabern",
                       "kind": "query",
                       "name": "search_text",
                       "orig": "search_text",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": True,
                       "kind": "query",
                       "name": "sortbbox",
                       "orig": "sortbbox",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": "21781",
                       "kind": "query",
                       "name": "sr",
                       "orig": "sr",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "locations",
                       "kind": "query",
                       "name": "type",
@@ -180,10 +176,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {

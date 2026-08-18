@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class GeoadminSearchConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,11 +54,8 @@ class GeoadminSearchConfig
         'search' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'results',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 0,
             ],
           ],
           'name' => 'search',
@@ -45,108 +65,84 @@ class GeoadminSearchConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => '551306.5625,167918.328125,551754.125,168514.625',
                         'kind' => 'query',
                         'name' => 'bbox',
                         'orig' => 'bbox',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'callback',
                         'orig' => 'callback',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'ch.bafu.hydrologie-gewaesserzustandsmessstationen',
                         'kind' => 'query',
                         'name' => 'feature',
                         'orig' => 'feature',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'geometry_format',
                         'orig' => 'geometry_format',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'de',
                         'kind' => 'query',
                         'name' => 'lang',
                         'orig' => 'lang',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 50,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'address,gazetteer',
                         'kind' => 'query',
                         'name' => 'origin',
                         'orig' => 'origin',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => true,
                         'kind' => 'query',
                         'name' => 'return_geometry',
                         'orig' => 'return_geometry',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'wabern',
                         'kind' => 'query',
                         'name' => 'search_text',
                         'orig' => 'search_text',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => true,
                         'kind' => 'query',
                         'name' => 'sortbbox',
                         'orig' => 'sortbbox',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => '21781',
                         'kind' => 'query',
                         'name' => 'sr',
                         'orig' => 'sr',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'locations',
                         'kind' => 'query',
                         'name' => 'type',
@@ -185,10 +181,8 @@ class GeoadminSearchConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
