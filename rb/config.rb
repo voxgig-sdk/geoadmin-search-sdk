@@ -19,6 +19,9 @@ module GeoadminSearchConfig
     {
       "main" => {
         "name" => "GeoadminSearch",
+        "slug" => "geoadmin-search",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
