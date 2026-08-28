@@ -21,6 +21,17 @@ class Search
 /** Request payload for Search#load. */
 class SearchLoadMatch
 {
-    public ?array $results = null;
+    public ?string $bbox = null;
+    public ?string $callback = null;
+    public ?string $feature = null;
+    public ?string $geometry_format = null;
+    public ?string $lang = null;
+    public ?int $limit = null;
+    public ?string $origin = null;
+    public ?bool $return_geometry = null;
+    public ?string $search_text = null;
+    public ?bool $sortbbox = null;
+    public ?string $sr = null;
+    public string $type;
 }
 

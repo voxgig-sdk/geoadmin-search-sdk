@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single search — the value is the loaded record.
-    search, err := client.Search(nil).Load(nil, nil)
+    search, err := client.Search(nil).Load(map[string]any{"type": "example_type"}, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-search, err := client.Search(nil).Load(nil, nil)
+search, err := client.Search(nil).Load(map[string]any{"type": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 search, err := client.Search(nil).Load(
-    nil, nil,
+    map[string]any{"type": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -288,12 +288,35 @@ Create an instance: `search := client.Search(nil)`
 #### Example: Load
 
 ```go
-search, err := client.Search(nil).Load(nil, nil)
+search, err := client.Search(nil).Load(map[string]any{"type": "type"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(search) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -370,7 +393,7 @@ stores the returned data and match criteria internally.
 
 ```go
 search := client.Search(nil)
-search.Load(nil, nil)
+search.Load(map[string]any{"type": "example"}, nil)
 
 // search.Data() now returns the search data from the last load
 // search.Match() returns the last match criteria

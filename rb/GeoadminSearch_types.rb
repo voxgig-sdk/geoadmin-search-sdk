@@ -19,10 +19,54 @@ Search = Struct.new(
 
 # Request payload for Search#load.
 #
-# @!attribute [rw] results
-#   @return [Array, nil]
+# @!attribute [rw] bbox
+#   @return [String, nil]
+#
+# @!attribute [rw] callback
+#   @return [String, nil]
+#
+# @!attribute [rw] feature
+#   @return [String, nil]
+#
+# @!attribute [rw] geometry_format
+#   @return [String, nil]
+#
+# @!attribute [rw] lang
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] origin
+#   @return [String, nil]
+#
+# @!attribute [rw] return_geometry
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] search_text
+#   @return [String, nil]
+#
+# @!attribute [rw] sortbbox
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] sr
+#   @return [String, nil]
+#
+# @!attribute [rw] type
+#   @return [String]
 SearchLoadMatch = Struct.new(
-  :results,
+  :bbox,
+  :callback,
+  :feature,
+  :geometry_format,
+  :lang,
+  :limit,
+  :origin,
+  :return_geometry,
+  :search_text,
+  :sortbbox,
+  :sr,
+  :type,
   keyword_init: true
 )
 

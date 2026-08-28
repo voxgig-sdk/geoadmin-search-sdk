@@ -19,7 +19,18 @@ type Search struct {
 
 // SearchLoadMatch is the typed request payload for Search.LoadTyped.
 type SearchLoadMatch struct {
-	Results *[]any `json:"results,omitempty"`
+	Bbox *string `json:"bbox,omitempty"`
+	Callback *string `json:"callback,omitempty"`
+	Feature *string `json:"feature,omitempty"`
+	GeometryFormat *string `json:"geometry_format,omitempty"`
+	Lang *string `json:"lang,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Origin *string `json:"origin,omitempty"`
+	ReturnGeometry *bool `json:"return_geometry,omitempty"`
+	SearchText *string `json:"search_text,omitempty"`
+	Sortbbox *bool `json:"sortbbox,omitempty"`
+	Sr *string `json:"sr,omitempty"`
+	Type string `json:"type"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

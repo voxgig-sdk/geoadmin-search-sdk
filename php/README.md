@@ -36,7 +36,7 @@ $client = new GeoadminSearchSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Search record (throws on error).
-    $search = $client->Search()->load();
+    $search = $client->Search()->load(["type" => "example_type"]);
     print_r($search);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $search = $client->Search()->load();
+    $search = $client->Search()->load(["type" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,7 +125,7 @@ $client = GeoadminSearchSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$search = $client->Search()->load();
+$search = $client->Search()->load(["type" => "example"]);
 print_r($search);
 ```
 
@@ -276,8 +276,31 @@ Create an instance: `$search = $client->Search();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Search record (throws on error).
-$search = $client->Search()->load();
+$search = $client->Search()->load(["type" => "type"]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -357,7 +380,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $search = $client->Search();
-$search->load();
+$search->load(["type" => "example"]);
 
 // $search->data_get() now returns the search data from the last load
 // $search->match_get() returns the last match criteria

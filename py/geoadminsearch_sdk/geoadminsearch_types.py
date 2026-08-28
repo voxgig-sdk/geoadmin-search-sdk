@@ -20,5 +20,19 @@ class Search(TypedDict, total=False):
     results: list
 
 
-class SearchLoadMatch(TypedDict, total=False):
-    results: list
+class SearchLoadMatchRequired(TypedDict):
+    type: str
+
+
+class SearchLoadMatch(SearchLoadMatchRequired, total=False):
+    bbox: str
+    callback: str
+    feature: str
+    geometry_format: str
+    lang: str
+    limit: int
+    origin: str
+    return_geometry: bool
+    search_text: str
+    sortbbox: bool
+    sr: str

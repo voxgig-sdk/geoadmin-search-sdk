@@ -10,7 +10,18 @@
 ---@field results? table
 
 ---@class SearchLoadMatch
----@field results? table
+---@field bbox? string
+---@field callback? string
+---@field feature? string
+---@field geometry_format? string
+---@field lang? string
+---@field limit? number
+---@field origin? string
+---@field return_geometry? boolean
+---@field search_text? string
+---@field sortbbox? boolean
+---@field sr? string
+---@field type string
 
 local M = {}
 
