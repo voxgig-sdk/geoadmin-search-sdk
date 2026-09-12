@@ -133,11 +133,19 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/rest/services/ech/SearchServer",
-                ["parts"] = {
-                  "rest",
-                  "services",
-                  "ech",
-                  "SearchServer",
+                ["segments"] = {
+                  {
+                    ["lit"] = "rest",
+                  },
+                  {
+                    ["lit"] = "services",
+                  },
+                  {
+                    ["lit"] = "ech",
+                  },
+                  {
+                    ["lit"] = "SearchServer",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -158,6 +166,12 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "rest",
+                  "services",
+                  "ech",
+                  "SearchServer",
                 },
               },
             },

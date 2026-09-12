@@ -159,11 +159,19 @@ class GeoadminSearchConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/rest/services/ech/SearchServer',
-                  'parts' => [
-                    'rest',
-                    'services',
-                    'ech',
-                    'SearchServer',
+                  'segments' => [
+                    [
+                      'lit' => 'rest',
+                    ],
+                    [
+                      'lit' => 'services',
+                    ],
+                    [
+                      'lit' => 'ech',
+                    ],
+                    [
+                      'lit' => 'SearchServer',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -184,6 +192,12 @@ class GeoadminSearchConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'rest',
+                    'services',
+                    'ech',
+                    'SearchServer',
                   ],
                 ],
               ],

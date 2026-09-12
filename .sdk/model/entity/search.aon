@@ -118,11 +118,19 @@ main: kit: entity: search: {
           }
           method: "GET"
           orig: "/rest/services/ech/SearchServer"
-          parts: [
-            "rest"
-            "services"
-            "ech"
-            "SearchServer"
+          segments: [
+            {
+              lit: "rest"
+            }
+            {
+              lit: "services"
+            }
+            {
+              lit: "ech"
+            }
+            {
+              lit: "SearchServer"
+            }
           ]
           select: {
             exist: [
