@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search'
+import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search-sdk'
 
 const client = new GeoadminSearchSDK()
 ```
@@ -401,7 +401,7 @@ geoadmin-search/
 Import the SDK from the package root:
 
 ```ts
-import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search'
+import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search-sdk'
 ```
 
 ### Entity state

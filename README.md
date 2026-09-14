@@ -105,7 +105,7 @@ local result, err = client:Search():load({ type = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
+| TypeScript | `@voxgig-sdk/geoadmin-search-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
 | Python | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
 | PHP | `voxgig-sdk/geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/geoadmin-search-sdk/go` | `go get github.com/voxgig-sdk/geoadmin-search-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Search():load({ type = "example" })
 ### TypeScript
 
 ```ts
-import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search'
+import { GeoadminSearchSDK } from '@voxgig-sdk/geoadmin-search-sdk'
 
 const client = new GeoadminSearchSDK()
 
