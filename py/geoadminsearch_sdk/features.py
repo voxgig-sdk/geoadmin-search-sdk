@@ -1,12 +1,18 @@
 # GeoadminSearch SDK feature factory
 
 from geoadminsearch_sdk.feature.base_feature import GeoadminSearchBaseFeature
+from geoadminsearch_sdk.feature.ratelimit_feature import GeoadminSearchRatelimitFeature
+from geoadminsearch_sdk.feature.retry_feature import GeoadminSearchRetryFeature
 from geoadminsearch_sdk.feature.test_feature import GeoadminSearchTestFeature
+from geoadminsearch_sdk.feature.timeout_feature import GeoadminSearchTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: GeoadminSearchBaseFeature(),
+    "ratelimit": lambda: GeoadminSearchRatelimitFeature(),
+    "retry": lambda: GeoadminSearchRetryFeature(),
     "test": lambda: GeoadminSearchTestFeature(),
+    "timeout": lambda: GeoadminSearchTimeoutFeature(),
 }
 
 

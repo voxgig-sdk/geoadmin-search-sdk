@@ -4,7 +4,10 @@ declare(strict_types=1);
 // GeoadminSearch SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class GeoadminSearchFeatures
@@ -14,8 +17,14 @@ class GeoadminSearchFeatures
         switch ($name) {
             case "base":
                 return new GeoadminSearchBaseFeature();
+            case "ratelimit":
+                return new GeoadminSearchRatelimitFeature();
+            case "retry":
+                return new GeoadminSearchRetryFeature();
             case "test":
                 return new GeoadminSearchTestFeature();
+            case "timeout":
+                return new GeoadminSearchTimeoutFeature();
             default:
                 return new GeoadminSearchBaseFeature();
         }
@@ -31,7 +40,10 @@ class GeoadminSearchFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
