@@ -105,12 +105,12 @@ local result, err = client:Search():load({ type = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/geoadmin-search-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
-| Python | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
-| PHP | `voxgig-sdk/geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
+| TypeScript | `@voxgig-sdk/geoadmin-search-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/tags) |
+| Python | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/tags) |
+| PHP | `voxgig-sdk/geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/geoadmin-search-sdk/go` | `go get github.com/voxgig-sdk/geoadmin-search-sdk/go@latest` |
-| Ruby | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
-| Lua | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/releases) |
+| Ruby | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/tags) |
+| Lua | `voxgig-sdk-geoadmin-search` | publish pending — [install from git tag](https://github.com/voxgig-sdk/geoadmin-search-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/geoadmin-search-sdk/go-cli` | `go install github.com/voxgig-sdk/geoadmin-search-sdk/go-cli/cmd/geoadmin-search@latest` |
 | Go MCP server | `github.com/voxgig-sdk/geoadmin-search-sdk/go-mcp` | `go get github.com/voxgig-sdk/geoadmin-search-sdk/go-mcp@latest` |
 
