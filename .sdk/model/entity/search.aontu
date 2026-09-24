@@ -1,0 +1,168 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    results: {
+      h: "Results"
+      n: "results"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "search"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /rest/services/ech/SearchServer"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "551306.5625,167918.328125,551754.125,168514.625"
+                k: "query"
+                n: "bbox"
+                or: "bbox"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "ch.bafu.hydrologie-gewaesserzustandsmessstationen"
+                k: "query"
+                n: "feature"
+                or: "feature"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "geometry_format"
+                or: "geometry_format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "de"
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "address,gazetteer"
+                k: "query"
+                n: "origin"
+                or: "origin"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "return_geometry"
+                or: "return_geometry"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "wabern"
+                k: "query"
+                n: "search_text"
+                or: "search_text"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "sortbbox"
+                or: "sortbbox"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "21781"
+                k: "query"
+                n: "sr"
+                or: "sr"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "locations"
+                k: "query"
+                n: "type"
+                or: "type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/rest/services/ech/SearchServer"
+          q: {
+            exist: [
+              "bbox"
+              "callback"
+              "feature"
+              "geometry_format"
+              "lang"
+              "limit"
+              "origin"
+              "return_geometry"
+              "search_text"
+              "sortbbox"
+              "sr"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "rest"
+            }
+            {
+              lit: "services"
+            }
+            {
+              lit: "ech"
+            }
+            {
+              lit: "SearchServer"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,6 +107,7 @@ class Config {
             "fields": [
                 {
                     "name": "results",
+                    "title": "Results",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -124,93 +118,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "551306.5625,167918.328125,551754.125,168514.625",
-                                        "kind": "query",
-                                        "name": "bbox",
-                                        "orig": "bbox",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "callback",
-                                        "orig": "callback",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
-                                        "kind": "query",
-                                        "name": "feature",
-                                        "orig": "feature",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "geometry_format",
-                                        "orig": "geometry_format",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "de",
-                                        "kind": "query",
-                                        "name": "lang",
-                                        "orig": "lang",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 50,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": "address,gazetteer",
-                                        "kind": "query",
-                                        "name": "origin",
-                                        "orig": "origin",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": true,
-                                        "kind": "query",
-                                        "name": "return_geometry",
-                                        "orig": "return_geometry",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "example": "wabern",
-                                        "kind": "query",
-                                        "name": "search_text",
-                                        "orig": "search_text",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": true,
-                                        "kind": "query",
-                                        "name": "sortbbox",
-                                        "orig": "sortbbox",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "example": "21781",
-                                        "kind": "query",
-                                        "name": "sr",
-                                        "orig": "sr",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "locations",
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/rest/services/ech/SearchServer",
@@ -228,6 +135,104 @@ class Config {
                                     "lit": "SearchServer"
                                 }
                             ],
+                            "parts": [
+                                "rest",
+                                "services",
+                                "ech",
+                                "SearchServer"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "bbox",
+                                        "orig": "bbox",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "551306.5625,167918.328125,551754.125,168514.625"
+                                    },
+                                    {
+                                        "name": "callback",
+                                        "orig": "callback",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "feature",
+                                        "orig": "feature",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "ch.bafu.hydrologie-gewaesserzustandsmessstationen"
+                                    },
+                                    {
+                                        "name": "geometry_format",
+                                        "orig": "geometry_format",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "lang",
+                                        "orig": "lang",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "de"
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 50
+                                    },
+                                    {
+                                        "name": "origin",
+                                        "orig": "origin",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "address,gazetteer"
+                                    },
+                                    {
+                                        "name": "return_geometry",
+                                        "orig": "return_geometry",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": true
+                                    },
+                                    {
+                                        "name": "search_text",
+                                        "orig": "search_text",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "wabern"
+                                    },
+                                    {
+                                        "name": "sortbbox",
+                                        "orig": "sortbbox",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": true
+                                    },
+                                    {
+                                        "name": "sr",
+                                        "orig": "sr",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "21781"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "locations"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "bbox",
@@ -243,17 +248,7 @@ class Config {
                                     "sr",
                                     "type"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "rest",
-                                "services",
-                                "ech",
-                                "SearchServer"
-                            ]
+                            }
                         }
                     ]
                 }
