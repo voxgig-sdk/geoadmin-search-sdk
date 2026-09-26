@@ -1,4 +1,4 @@
-package = "voxgig-sdk-geoadmin-search"
+package = "voxgig-sdk-geoadmin-search-sdk"
 version = "0.0.1-1"
 source = {
   -- git+https (GitHub dropped git:// in 2022); pin the install to the release
