@@ -142,7 +142,7 @@
                         "ex": "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
                         "k": "query",
                         "n": "feature",
-                        "or": "feature",
+                        "or": "features",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -150,7 +150,7 @@
                         "a": true,
                         "k": "query",
                         "n": "geometry_format",
-                        "or": "geometry_format",
+                        "or": "geometryFormat",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -177,7 +177,7 @@
                         "ex": "address,gazetteer",
                         "k": "query",
                         "n": "origin",
-                        "or": "origin",
+                        "or": "origins",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -186,7 +186,7 @@
                         "ex": true,
                         "k": "query",
                         "n": "return_geometry",
-                        "or": "return_geometry",
+                        "or": "returnGeometry",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -195,7 +195,7 @@
                         "ex": "wabern",
                         "k": "query",
                         "n": "search_text",
-                        "or": "search_text",
+                        "or": "searchText",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -755,7 +755,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

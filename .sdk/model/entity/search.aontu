@@ -45,14 +45,14 @@ main: kit: entity: search: {
                 ex: "ch.bafu.hydrologie-gewaesserzustandsmessstationen"
                 k: "query"
                 n: "feature"
-                or: "feature"
+                or: "features"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "geometry_format"
-                or: "geometry_format"
+                or: "geometryFormat"
                 r: false
                 t: "`$STRING`"
               }
@@ -76,7 +76,7 @@ main: kit: entity: search: {
                 ex: "address,gazetteer"
                 k: "query"
                 n: "origin"
-                or: "origin"
+                or: "origins"
                 r: false
                 t: "`$STRING`"
               }
@@ -84,7 +84,7 @@ main: kit: entity: search: {
                 ex: true
                 k: "query"
                 n: "return_geometry"
-                or: "return_geometry"
+                or: "returnGeometry"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -92,7 +92,7 @@ main: kit: entity: search: {
                 ex: "wabern"
                 k: "query"
                 n: "search_text"
-                or: "search_text"
+                or: "searchText"
                 r: false
                 t: "`$STRING`"
               }

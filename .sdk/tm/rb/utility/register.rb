@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 GeoadminSearchUtility.registrar = ->(u) {
   u.clean = GeoadminSearchUtilities::Clean
+  u.clean_add = GeoadminSearchUtilities::CleanAdd
+  u.clean_explain = GeoadminSearchUtilities::CleanExplain
   u.done = GeoadminSearchUtilities::Done
   u.make_error = GeoadminSearchUtilities::MakeError
   u.feature_add = GeoadminSearchUtilities::FeatureAdd

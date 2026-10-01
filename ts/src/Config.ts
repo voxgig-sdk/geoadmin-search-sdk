@@ -188,14 +188,14 @@ class Config {
                   },
                   {
                     "name": "feature",
-                    "orig": "feature",
+                    "orig": "features",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "ch.bafu.hydrologie-gewaesserzustandsmessstationen"
                   },
                   {
                     "name": "geometry_format",
-                    "orig": "geometry_format",
+                    "orig": "geometryFormat",
                     "type": "`$STRING`",
                     "kind": "query"
                   },
@@ -215,21 +215,21 @@ class Config {
                   },
                   {
                     "name": "origin",
-                    "orig": "origin",
+                    "orig": "origins",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "address,gazetteer"
                   },
                   {
                     "name": "return_geometry",
-                    "orig": "return_geometry",
+                    "orig": "returnGeometry",
                     "type": "`$BOOLEAN`",
                     "kind": "query",
                     "example": true
                   },
                   {
                     "name": "search_text",
-                    "orig": "search_text",
+                    "orig": "searchText",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "wabern"

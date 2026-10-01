@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 GeoadminSearchUtility::setRegistrar(function (GeoadminSearchUtility $u): void {
     $u->clean = [GeoadminSearchClean::class, 'call'];
+    $u->clean_add = [GeoadminSearchClean::class, 'add'];
+    $u->clean_explain = [GeoadminSearchDone::class, 'clean_explain'];
     $u->done = [GeoadminSearchDone::class, 'call'];
     $u->make_error = [GeoadminSearchMakeError::class, 'call'];
     $u->feature_add = [GeoadminSearchFeatureAdd::class, 'call'];
