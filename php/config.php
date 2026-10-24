@@ -93,6 +93,7 @@ class GeoadminSearchConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -241,19 +242,12 @@ class GeoadminSearchConfig
                   ],
                   'select' => [
                     'exist' => [
-                      'bbox',
-                      'callback',
-                      'feature',
-                      'geometry_format',
-                      'lang',
-                      'limit',
-                      'origin',
-                      'return_geometry',
-                      'search_text',
-                      'sortbbox',
-                      'sr',
                       'type',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

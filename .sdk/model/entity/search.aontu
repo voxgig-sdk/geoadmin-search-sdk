@@ -126,19 +126,12 @@ main: kit: entity: search: {
           o: "/rest/services/ech/SearchServer"
           q: {
             exist: [
-              "bbox"
-              "callback"
-              "feature"
-              "geometry_format"
-              "lang"
-              "limit"
-              "origin"
-              "return_geometry"
-              "search_text"
-              "sortbbox"
-              "sr"
               "type"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

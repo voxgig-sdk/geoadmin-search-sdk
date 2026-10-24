@@ -16,20 +16,24 @@ const PLAN: any[] = [
     "path": "/rest/services/ech/SearchServer",
     "args": [],
     "select": {
+      "type": "locations",
       "bbox": "551306.5625,167918.328125,551754.125,168514.625",
       "callback": "v1",
-      "feature": "v1",
+      "feature": "ch.bafu.hydrologie-gewaesserzustandsmessstationen",
       "geometry_format": "v1",
-      "lang": "v1",
-      "limit": "v1",
-      "origin": "v1",
+      "lang": "de",
+      "limit": 50,
+      "origin": "address,gazetteer",
       "return_geometry": "v1",
-      "search_text": "v1",
+      "search_text": "wabern",
       "sortbbox": "v1",
-      "sr": "v1",
-      "type": "locations"
+      "sr": "21781"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "type",
       "searchText",
@@ -43,6 +47,56 @@ const PLAN: any[] = [
       "lang",
       "geometryFormat",
       "callback"
+    ],
+    "queryArgs": [
+      {
+        "name": "bbox",
+        "wire": "bbox"
+      },
+      {
+        "name": "callback",
+        "wire": "callback"
+      },
+      {
+        "name": "feature",
+        "wire": "features"
+      },
+      {
+        "name": "geometry_format",
+        "wire": "geometryFormat"
+      },
+      {
+        "name": "lang",
+        "wire": "lang"
+      },
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "origin",
+        "wire": "origins"
+      },
+      {
+        "name": "return_geometry",
+        "wire": "returnGeometry"
+      },
+      {
+        "name": "search_text",
+        "wire": "searchText"
+      },
+      {
+        "name": "sortbbox",
+        "wire": "sortbbox"
+      },
+      {
+        "name": "sr",
+        "wire": "sr"
+      },
+      {
+        "name": "type",
+        "wire": "type"
+      }
     ],
     "auth": null,
     "status": 200,
